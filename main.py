@@ -81,15 +81,3 @@ print("플레이어",you, you_s)
 burst(cpu_s)
 
 print(get_fight_text(fight(you_s, cpu_s)))
-
-
-
-
-
-
-
-
-
-
-
-
