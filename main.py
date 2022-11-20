@@ -1,4 +1,6 @@
 import random as ran
+from pathlib import Path
+from tkinter import Tk, Canvas, Entry, Button, PhotoImage, messagebox
 
 def get_card():
     s = ran.randint(1, 4) # 문양 선택
