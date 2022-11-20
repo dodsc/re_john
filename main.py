@@ -74,6 +74,8 @@ def get_fight_text(num):  #승패 판단
         return "Draw"
     elif num == 4:
         return "Bust!"
+    elif num == 5:
+        return "Dealer Bust! You Win!!"
 
 def race(): # 카드 더 받기 (hit일경우 더 받고 stay일 경우 멈춤)
     dobak = input("카드를 더 받으실거면 hit, 멈추실거면 stay를 입력해주세요 : ") # 도박
@@ -125,6 +127,11 @@ while True:
         if burst(you_s) == 1: #버스트 판단
             break
         
+    while cpu_s < 17: #딜러는 16이하면 무조건 카드를 받아야함
+        cpu.append(get_card())
+        calc_card()
+    
+        
     print("컴퓨터",cpu, cpu_s)
     print("플레이어",you, you_s)
 
@@ -132,7 +139,7 @@ while True:
 
     if fight(you_s, cpu_s) == 0 or fight(you_s, cpu_s) == 4:
         coin = coin - bet
-    elif fight(you_s, cpu_s) == 1:
+    elif fight(you_s, cpu_s) == 1 or fight(you_s, cpu_s) == 5:
         coin = coin + bet
     elif fight(you_s, cpu_s) == 2:
         coin = coin
