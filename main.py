@@ -12,7 +12,7 @@ def get_card():
         shape = "클로버"
     else:
         shape = "다이아몬드"
-    
+
     return shape, n
 def calc_card():
     global cpu_s, you_s
@@ -25,7 +25,7 @@ def calc_card():
         you.pop()
         you.append(choice_card())
     """
-    
+
     for i in range(len(cpu)):
         if(cpu[i][1] >= 11): # K, Q, J는 10으로 계산
             cpu_s += 10
@@ -33,7 +33,7 @@ def calc_card():
             cpu_s += 11
         else:
             cpu_s += cpu[i][1]
-    
+
     for i in range(len(you)):
         if(you[i][1] >= 11): # K, Q, J는 10으로 계산
             you_s += 10
@@ -42,14 +42,73 @@ def calc_card():
         else:
             you_s = you_s + you[i][1]
 
-cpu = []
-you = []
+def fight(player_result, dealer_result):  #플레이어와 컴퓨터의 카드값 비교
+    if player_result == dealer_result:
+        return 2
+    elif player_result < dealer_result:
+        return 0
+    elif player_result > dealer_result:
+        return 1
+    elif player_result == 21:
+        return 3
 
-for j in range(2): # 블랙잭 기본 시작
-    cpu.append(get_card())
-    you.append(get_card())
+def burst(player_result):  # 버스트인지 확인 (버스트 = 21이상)
+    if (player_result > 21):
+        print("버스트입니다 게임종료")
 
-calc_card()
+def get_fight_text(num):  #승패 판단
+    if num == 0:
+        return "Lose"
+    elif num == 1:
+        return "Win"
+    elif num == 3:
+        return "Black Jack!"
+    elif num == 2:
+        return "Draw"
 
-print(cpu, cpu_s)
-print(you, you_s)
+def beting(coin): # 베팅
+    bet = int(input("베팅할 금액을 입력하시오 : ")) # 베팅액 확인
+    if (bet > coin):
+        print("베팅한 금액이 가지고 있는 금액보다 큽니다.")
+        return beting(coin)
+    if bet <= 0:
+        print("양수를 입력해주세요")
+        return beting(coin)
+    return bet
+
+
+coin = 1000 # 초기 코인
+
+while True:
+    cpu = []
+    you = []
+
+    print("현재 가진 돈 :", coin)
+    if coin == 0:
+        print("더이상 가진 돈이 없습니다.")
+        break
+    bet = beting(coin) # 베팅액 확인
+
+    for j in range(2): # 블랙잭 기본 시작
+        cpu.append(get_card())
+        you.append(get_card())
+
+    calc_card()
+
+    print("컴퓨터",cpu, cpu_s)
+    print("플레이어",you, you_s)
+
+    burst(cpu_s)
+
+    print(get_fight_text(fight(you_s, cpu_s)))
+
+    if fight(you_s, cpu_s) == 0:
+        coin = coin - bet
+    elif fight(you_s, cpu_s) == 1:
+        coin = coin + bet
+    elif fight(you_s, cpu_s) == 2:
+        coin = coin
+    elif fight(you_s, cpu_s) == 3:
+        coin = coin + bet*2
+    
+    
