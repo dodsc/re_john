@@ -17,6 +17,19 @@ window.geometry("800x500")
 window.configure(bg = "#30485E")
 window.title("BLACKJACK")
 
+# 메인 canvas 구성
+canvas = Canvas(
+    window,
+    bg = "#30485E",
+    height = 500,
+    width = 800,
+    bd = 0,
+    highlightthickness = 0,
+    relief = "ridge"
+)
+
+canvas.place(x = 0, y = 0)
+
 def get_card():
     s = ran.randint(1, 4) # 문양 선택
     n = ran.randint(1, 13) # 숫자 선택
@@ -163,6 +176,9 @@ while True:
     elif fight(you_s, cpu_s) == 3:
         coin = coin + bet*2
        
+def clearGamingElement():
+    return
+
 window.resizable(False, False)
 window.mainloop()
 
