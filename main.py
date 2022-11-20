@@ -4,7 +4,7 @@ from tkinter import Tk, Canvas, Entry, Button, PhotoImage, messagebox
 
 ### GUI Initializing Section
 OUTPUT_PATH = Path(__file__).parent
-ASSETS_PATH = OUTPUT_PATH / "assets/frame0"
+ASSETS_PATH = OUTPUT_PATH / "images"
 
 
 def relative_to_assets(path: str) -> Path:
@@ -132,49 +132,49 @@ def beting(coin): # 베팅
 
 coin = 1000 # 초기 코인
 
-while True:
-    cpu = []
-    you = []
-    print("현재 가진 돈 :", coin)
-    if coin == 0:
-        print("더이상 가진 돈이 없습니다.")
-        break
-    bet = beting(coin) # 베팅액 확인
+# while True:
+#     cpu = []
+#     you = []
+#     print("현재 가진 돈 :", coin)
+#     if coin == 0:
+#         print("더이상 가진 돈이 없습니다.")
+#         break
+#     bet = beting(coin) # 베팅액 확인
 
-    for j in range(2): # 블랙잭 기본 시작
-        cpu.append(get_card())
-        you.append(get_card())
+#     for j in range(2): # 블랙잭 기본 시작
+#         cpu.append(get_card())
+#         you.append(get_card())
         
-    calc_card()
+#     calc_card()
 
-    while True:
-        print("컴퓨터",cpu[0])
-        print("플레이어",you, you_s)
+#     while True:
+#         print("컴퓨터",cpu[0])
+#         print("플레이어",you, you_s)
         
-        if race() == 1: # 카드 더 받기
-            break
-        calc_card()
-        if burst(you_s) == 1: #버스트 판단
-            break
+#         if race() == 1: # 카드 더 받기
+#             break
+#         calc_card()
+#         if burst(you_s) == 1: #버스트 판단
+#             break
         
-    while cpu_s < 17: #딜러는 16이하면 무조건 카드를 받아야함
-        cpu.append(get_card())
-        calc_card()
+#     while cpu_s < 17: #딜러는 16이하면 무조건 카드를 받아야함
+#         cpu.append(get_card())
+#         calc_card()
     
         
-    print("컴퓨터",cpu, cpu_s)
-    print("플레이어",you, you_s)
+#     print("컴퓨터",cpu, cpu_s)
+#     print("플레이어",you, you_s)
 
-    print(get_fight_text(fight(you_s, cpu_s)))
+#     print(get_fight_text(fight(you_s, cpu_s)))
 
-    if fight(you_s, cpu_s) == 0 or fight(you_s, cpu_s) == 4:
-        coin = coin - bet
-    elif fight(you_s, cpu_s) == 1 or fight(you_s, cpu_s) == 5:
-        coin = coin + bet
-    elif fight(you_s, cpu_s) == 2:
-        coin = coin
-    elif fight(you_s, cpu_s) == 3:
-        coin = coin + bet*2
+#     if fight(you_s, cpu_s) == 0 or fight(you_s, cpu_s) == 4:
+#         coin = coin - bet
+#     elif fight(you_s, cpu_s) == 1 or fight(you_s, cpu_s) == 5:
+#         coin = coin + bet
+#     elif fight(you_s, cpu_s) == 2:
+#         coin = coin
+#     elif fight(you_s, cpu_s) == 3:
+#         coin = coin + bet*2
 
 # GUI Elements started
 image_image_1 = PhotoImage(
