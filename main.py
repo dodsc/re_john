@@ -145,9 +145,5 @@ while True:
         coin = coin
     elif fight(you_s, cpu_s) == 3:
         coin = coin + bet*2
-
-    
-    
-
-
-
+       
+       
