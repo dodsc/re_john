@@ -30,6 +30,72 @@ canvas = Canvas(
 
 canvas.place(x = 0, y = 0)
 
+def getBetting():
+    def betted():
+        if (not entry_1.get().isdigit()):
+            messagebox.showinfo("Error", "숫자만 입력해주세요.")
+            return
+
+        ## 배팅 코드
+        canvas2.destroy()
+        bet_button.place_forget()
+        entry_1.place_forget()
+        
+    canvas2 = Canvas(
+        window,
+        bg = "#30485E",
+        height = 500,
+        width = 800,
+        bd = 0,
+        highlightthickness = 0,
+        relief = "ridge"
+    )
+
+    canvas2.place(x = 0, y = 0)
+
+    canvas2.create_text(
+        333.5,
+        293.1425476074219,
+        anchor="nw",
+        text="얼마만큼 거시겠어요?",
+        fill="#FFFFFF",
+        font=("NanumSquare Neo ExtraBold", 14 * -1)
+    )
+
+    entry_image_1 = PhotoImage(
+        file=relative_to_assets("entry_1.png"))
+    entry_bg_1 = canvas2.create_image(
+        400.0,
+        337.2828369140625,
+        image=entry_image_1
+    )
+    entry_1 = Entry(
+        bd=0,
+        bg="#FFFFFF",
+        fg="#000716",
+        highlightthickness=0
+    )
+    entry_1.place(
+        x=289.0,
+        y=319.2828369140625,
+        width=222.0,
+        height=34.0
+    )
+
+    bet_button = Button(
+        borderwidth=0,
+        highlightthickness=0,
+        command=betted,
+        text="배팅 걸기"
+    )
+    bet_button.place(
+        x=281.0,
+        y=361.2828369140625,
+        width=238.0,
+        height=37.0
+    )
+
+
 def get_card():
     s = ran.randint(1, 4) # 문양 선택
     n = ran.randint(1, 13) # 숫자 선택
