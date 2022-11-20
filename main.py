@@ -163,4 +163,6 @@ while True:
     elif fight(you_s, cpu_s) == 3:
         coin = coin + bet*2
        
-       
+window.resizable(False, False)
+window.mainloop()
+
