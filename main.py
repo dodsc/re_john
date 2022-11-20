@@ -2,6 +2,21 @@ import random as ran
 from pathlib import Path
 from tkinter import Tk, Canvas, Entry, Button, PhotoImage, messagebox
 
+### GUI Initializing Section
+OUTPUT_PATH = Path(__file__).parent
+ASSETS_PATH = OUTPUT_PATH / "assets/frame0"
+
+
+def relative_to_assets(path: str) -> Path:
+    return ASSETS_PATH / Path(path)
+
+
+window = Tk()
+
+window.geometry("800x500")
+window.configure(bg = "#30485E")
+window.title("BLACKJACK")
+
 def get_card():
     s = ran.randint(1, 4) # 문양 선택
     n = ran.randint(1, 13) # 숫자 선택
