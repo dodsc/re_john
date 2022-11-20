@@ -363,6 +363,27 @@ image_9 = canvas.create_image(
 )
 # GUI elements ended
 
+def clearGamingElement():
+    # player 카드 리스트
+    canvas.itemconfig(image_1, state="hidden")
+    canvas.itemconfig(image_2, state="hidden")
+    canvas.itemconfig(image_3, state="hidden")
+    canvas.itemconfig(image_4, state="hidden")
+
+    # computer 카드 리스트
+    canvas.itemconfig(image_6, state="hidden")
+    canvas.itemconfig(image_7, state="hidden")
+    canvas.itemconfig(image_8, state="hidden")
+    canvas.itemconfig(image_9, state="hidden")
+
+    # 카드 토탈 카운팅 제거
+    canvas.itemconfig(card_total_player, state="hidden")
+    canvas.itemconfig(card_total_computer, state="hidden")
+
+    # 힛, 스테이 버튼 제거
+    # hit_button.place_forget()
+    stay_button.place_forget()
+
 window.resizable(False, False)
 window.mainloop()
 
