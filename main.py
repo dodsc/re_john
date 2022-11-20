@@ -68,6 +68,8 @@ def get_fight_text(num):  #승패 판단
         return "Lose"
     elif num == 1:
         return "Win"
+    elif num == 3:
+        return "Black Jack!"
     elif num == 2:
         return "Draw"
     elif num == 4:
@@ -123,8 +125,6 @@ while True:
         if burst(you_s) == 1: #버스트 판단
             break
         
-    
-        
     print("컴퓨터",cpu, cpu_s)
     print("플레이어",you, you_s)
 
@@ -136,7 +136,8 @@ while True:
         coin = coin + bet
     elif fight(you_s, cpu_s) == 2:
         coin = coin
-
+    elif fight(you_s, cpu_s) == 3:
+        coin = coin + bet*2
 
     
     
