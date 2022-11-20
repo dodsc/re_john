@@ -175,9 +175,193 @@ while True:
         coin = coin
     elif fight(you_s, cpu_s) == 3:
         coin = coin + bet*2
-       
-def clearGamingElement():
-    return
+
+# GUI Elements started
+image_image_1 = PhotoImage(
+    file=relative_to_assets("image_1.png"))
+image_1 = canvas.create_image(
+    218.1849365234375,
+    368.3338317871094,
+    image=image_image_1
+)
+
+image_image_2 = PhotoImage(
+    file=relative_to_assets("image_2.png"))
+image_2 = canvas.create_image(
+    338.5343933105469,
+    368.3338317871094,
+    image=image_image_2
+)
+
+image_image_3 = PhotoImage(
+    file=relative_to_assets("image_3.png"))
+image_3 = canvas.create_image(
+    459.5613098144531,
+    368.3338317871094,
+    image=image_image_3
+)
+
+image_image_4 = PhotoImage(
+    file=relative_to_assets("image_4.png"))
+image_4 = canvas.create_image(
+    580.5882568359375,
+    368.3338317871094,
+    image=image_image_4
+)
+
+hit_image_raw = PhotoImage(
+    file=relative_to_assets("button_1.png"))
+hit_button = Button(
+    image=hit_image_raw,
+    borderwidth=0,
+    highlightthickness=0,
+    command=lambda: getBetting(),
+    relief="flat"
+)
+hit_button.place(
+    x=667.1844482421875,
+    y=365.25634765625,
+    width=100.0,
+    height=37.20671081542969
+)
+
+stay_image_raw = PhotoImage(
+    file=relative_to_assets("button_2.png"))
+stay_button = Button(
+    image=stay_image_raw,
+    borderwidth=0,
+    highlightthickness=0,
+    command=lambda: print("button_2 clicked"),
+    relief="flat"
+)
+stay_button.place(
+    x=667.1844482421875,
+    y=418.0,
+    width=100.0,
+    height=37.20672607421875
+)
+
+########## 잔액 처리 ###########
+money_image_raw = PhotoImage(
+    file=relative_to_assets("image_5.png"))
+money_image = canvas.create_image(
+    351.7325744628906,
+    249.5,
+    image=money_image_raw
+)
+canvas.create_text(
+    372.2674255371094,
+    242.5,
+    anchor="nw",
+    text="잔액: $1,000",
+    fill="#E5DA49",
+    font=("NanumSquare Neo Bold", 14 * -1)
+)
+##############################
+
+card_total_computer = canvas.create_text(
+    392.5,
+    33.881317138671875,
+    anchor="nw",
+    text="21", # 컴퓨터 카드 합계
+    fill="#FFFFFF",
+    font=("NanumSquare Neo Bold", 12 * -1)
+)
+
+card_total_player = canvas.create_text(
+    392.5,
+    454.118896484375,
+    anchor="nw",
+    text="21", # 유저 카드 합계
+    fill="#FFFFFF",
+    font=("NanumSquare Neo Bold", 12 * -1)
+)
+
+count_win_computer = canvas.create_text(
+    735.0516357421875,
+    67.92990112304688,
+    anchor="nw",
+    text="승: 10",
+    fill="#CCDDFF",
+    font=("NanumSquare Neo Bold", 15 * -1)
+)
+count_lose_computer = canvas.create_text(
+    734.0516357421875,
+    88.92990112304688,
+    anchor="nw",
+    text="패: 20",
+    fill="#EFACAC",
+    font=("NanumSquare Neo Bold", 15 * -1)
+)
+
+canvas.create_text(
+    596.0516357421875,
+    26.881317138671875,
+    anchor="nw",
+    text="Computer",
+    fill="#FFFFFF",
+    font=("NanumSquare Neo Heavy", 32 * -1)
+)
+
+canvas.create_text(
+    45.83544921875,
+    428.0963439941406,
+    anchor="nw",
+    text="Player",
+    fill="#FFFFFF",
+    font=("NanumSquare Neo Heavy", 32 * -1)
+)
+
+count_lose_player = canvas.create_text(
+    45.83544921875,
+    404.2828369140625,
+    anchor="nw",
+    text="패: 2",
+    fill="#EFACAC",
+    font=("NanumSquare Neo Bold", 15 * -1)
+)
+
+count_win_player = canvas.create_text(
+    45.83544921875,
+    385.2828369140625,
+    anchor="nw",
+    text="승: 1",
+    fill="#CCDDFF",
+    font=("NanumSquare Neo Bold", 15 * -1)
+)
+
+image_image_6 = PhotoImage(
+    file=relative_to_assets("image_6.png"))
+image_6 = canvas.create_image(
+    218.1849365234375,
+    131.12710571289062,
+    image=image_image_6
+)
+
+image_image_7 = PhotoImage(
+    file=relative_to_assets("image_7.png"))
+image_7 = canvas.create_image(
+    339.4656066894531,
+    131.12710571289062,
+    image=image_image_7
+)
+
+image_image_8 = PhotoImage(
+    file=relative_to_assets("image_8.png"))
+image_8 = canvas.create_image(
+    460.4656066894531,
+    132.12710571289062,
+    image=image_image_8
+)
+
+image_image_9 = PhotoImage(
+    file=relative_to_assets("image_9.png"))
+image_9 = canvas.create_image(
+    582.465576171875,
+    132.12710571289062,
+    image=image_image_9
+)
+# GUI elements ended
 
 window.resizable(False, False)
 window.mainloop()
